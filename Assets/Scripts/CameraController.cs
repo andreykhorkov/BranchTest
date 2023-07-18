@@ -6,6 +6,7 @@ namespace DefaultNamespace
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private Vector3 _offset;
+        [SerializeField] private Vector3 _lookAtOffset;
         [SerializeField] private float _dumpingTime = 0.5f;
 
         private Transform _masterTf;
@@ -40,7 +41,7 @@ namespace DefaultNamespace
             var desiredPosition = position + _offset.z * projXY + Vector3.up * _offset.y;
             _camDesiredPos = desiredPosition;
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref _camVelocity, _dumpingTime);
-            transform.LookAt(position + forward * 2, Vector3.up);
+            transform.LookAt(position + _masterTf.TransformDirection(_lookAtOffset), Vector3.up);
         }
 
         private void OnDrawGizmos()

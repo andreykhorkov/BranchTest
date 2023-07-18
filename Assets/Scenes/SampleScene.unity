@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 358839464}
   - component: {fileID: 358839463}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlayerMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f186515fb20432fb37b9fd10aa677ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 1, z: -5}
+  _offset: {x: 0, y: 2, z: -5}
+  _lookAtOffset: {x: 0, y: 0, z: 2}
   _dumpingTime: 0.5
 --- !u!1 &1601399722
 GameObject:
