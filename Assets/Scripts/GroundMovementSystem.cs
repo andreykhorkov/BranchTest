@@ -7,9 +7,9 @@ namespace DefaultNamespace
         public MovementSettings Settings { get; }
         public Transform Tf { get; }
 
-        public GroundMovementSystem(Transform playerTf, MovementSettings settings)
+        public GroundMovementSystem(Transform entityTransform, MovementSettings settings)
         {
-            Tf = playerTf;
+            Tf = entityTransform;
             Settings = settings;
         }
         
