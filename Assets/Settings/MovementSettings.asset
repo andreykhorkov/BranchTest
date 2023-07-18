@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18ce6d8a66034251b991f9a85a456412, type: 3}
-  m_Name: PlayerSettings
+  m_Name: MovementSettings
   m_EditorClassIdentifier: 
   Speed: 5
-  RotationSpeed: 180
+  RotationSpeed: 120

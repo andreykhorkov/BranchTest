@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class PlayerMover : MonoBehaviour
+    public class EntityMover : MonoBehaviour
     {
-        private PlayerFacade _player;
-        
+        private IMovementSystem _movableEntity;
         private IInputSystem _inputSystem;
 
         private void Awake()
@@ -19,9 +17,9 @@ namespace DefaultNamespace
             PlayerFacade.PlayerClicked -= OnPlayerClicked;
         }
 
-        private void OnPlayerClicked(PlayerFacade player)
+        private void OnPlayerClicked(IMovementSystem player)
         {
-            _player = player; 
+            _movableEntity = player; 
         }
 
         private void Start()
@@ -31,12 +29,12 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (_player == null)
+            if (ReferenceEquals(_movableEntity, null))
             {
                 return;
             }
             
-            _player.Move(_inputSystem.GetInput(), Time.deltaTime);
+            _movableEntity.Move(_inputSystem.GetInput(), Time.deltaTime);
         }
     }
 }

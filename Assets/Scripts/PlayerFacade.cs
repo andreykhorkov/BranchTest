@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class PlayerFacade : MonoBehaviour
 {
-    [SerializeField] private PlayerSettings _settings;
+    [SerializeField] private MovementSettings _settings;
     
     private IMovementSystem _movementSystem;
 
-    public static event Action<PlayerFacade> PlayerClicked = delegate {  };
+    public static event Action<IMovementSystem> PlayerClicked = delegate {  };
 
     private void Start()
     {
-        _movementSystem = new GroundMovementSystem(transform);
-    }
-
-    public void Move(Vector2 input, float dt)
-    {
-        _movementSystem.Move(input, _settings, dt);
+        _movementSystem = new GroundMovementSystem(transform, _settings);
     }
 
     private void OnMouseDown()
     {
-        PlayerClicked.Invoke(this);
+        PlayerClicked.Invoke(_movementSystem);
     }
 }

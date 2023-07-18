@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -10,7 +9,7 @@ namespace DefaultNamespace
         [SerializeField] private float _dumpingTime = 0.5f;
 
         private Transform _masterTf;
-        private Vector3 _camVelocity; //
+        private Vector3 _camVelocity; 
         private Vector3 _camDesiredPos;
 
         private void Awake()
@@ -23,9 +22,9 @@ namespace DefaultNamespace
             PlayerFacade.PlayerClicked -= OnPlayerClicked;
         }
 
-        private void OnPlayerClicked(PlayerFacade player)
+        private void OnPlayerClicked(IMovementSystem movableEntity)
         {
-            _masterTf = player.transform;
+            _masterTf = movableEntity.Tf;
         }
 
         private void Update()
